@@ -1,7 +1,7 @@
 <h1 align="center">Directory Hierarchy</h1>
 
 ```md
-COSMIC-DB/
+cosmic-db/
 ├── apis/                   # CoSMIC BE API Endpoints (Implementation)
 │   ├── data_models/        # Pydantic models for request validation and API responses
 │   ├── table_models/       # SQLModel ORM table definitions mapped to PostgreSQL database tables
@@ -70,24 +70,24 @@ Then, start by cloning the repository using your preferred method:
 
 ```bash
 # Linux/MacOS
-git clone https://github.com/TheOpenSI/CoSMIC_DB.git    # Using HTTPS (recommended for most users)
-git clone git@github.com:TheOpenSI/CoSMIC_DB.git        # Using SSH (recommended if you've SSH keys configured)
+git clone https://github.com/TheOpenSI/cosmic-db.git    # Using HTTPS (recommended for most users)
+git clone git@github.com:TheOpenSI/cosmic-db.git        # Using SSH (recommended if you've SSH keys configured)
 ```
 ```ps1
 # Windows
-git clone https://github.com/TheOpenSI/CoSMIC_DB.git    # Using HTTPS (recommended for most users)
-git clone git@github.com:TheOpenSI/CoSMIC_DB.git        # Using SSH (recommended if you've SSH keys configured)
+git clone https://github.com/TheOpenSI/cosmic-db.git    # Using HTTPS (recommended for most users)
+git clone git@github.com:TheOpenSI/cosmic-db.git        # Using SSH (recommended if you've SSH keys configured)
 ```
 
 Once cloned, navigate to the project root directory:
 
 ```bash
 # Linux/MacOS
-cd CoSMIC_DB/
+cd cosmic-db/
 ```
 ```ps1
 # Windows
-Set-Location CoSMIC_DB\
+Set-Location cosmic-db\
 ```
 
 ---
@@ -278,7 +278,7 @@ psql --version
 
 ### **1. Installing Dependencies**
 
-Our backend uses **Python (v3.14+)** with the `uv` package manager for dependency management. Once **PostgreSQL (v18+)** is running and you're in the project root directory (`CoSMIC_DB/`), install the project's Python dependencies:
+Our backend uses **Python (v3.14+)** with the `uv` package manager for dependency management. Once **PostgreSQL (v18+)** is running and you're in the project root directory (`cosmic-db/`), install the project's Python dependencies:
 
 ```bash
 # Linux/MacOS
