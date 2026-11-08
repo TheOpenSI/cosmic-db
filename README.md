@@ -13,14 +13,15 @@ cosmic-db/
 │   ├── dockerfiles/        # Dockerfile for each services defined in Docker Compose file
 │   └── secrets/            # Secure storage for sensitive data like database credentials
 ├── examples/               # Template files and default values for rapid environment setup
+├── fixtures/               # Reusable seed data: data_fixtures/ (setup) and test_fixtures/ (demos/tests)
 ├── migrations/             # Alembic database migration scripts and utilities
 │   ├── utils/              # Shell scripts for running migrations automatically on container startup
-│   ├── versions/           # Versioned Alembic migration files for schema creation and data pre-population
-│   └── README              # Alembic-generated readme describing the migration configuration
+│   ├── initial_versions/   # One revision per table and per essential-data fixture
+│   ├── demo_versions/      # Optional demo/test data revisions (see demo-alembic.ini)
+│   └── README.md           # Migration workflow, revision layout, and demo data
 ├── routers/                # CoSMIC BE API Endpoints (Interface)
 │   ├── api_endpoints/      # Requests to CoSMIC BE's API endpoints goes here
 │   └── normal_endpoints/   # Requests to CoSMIC BE's non-API endpoints goes here
-├── scripts/                # One-off helper scripts (e.g. data seeding)
 ├── types/                  # Shared type definitions used across the application
 │   └── api_responses/      # Pydantic response wrapper models returned to API clients
 ├── utils/                  # Helper functions and shared utility scripts
@@ -32,7 +33,8 @@ cosmic-db/
 ├── LICENSE                 # Project licensing information (MIT)
 ├── README.md               # This's what you're seeing right now
 ├── __init__.py             # Package initialisation (mainly for relative import usages)
-├── alembic.ini             # Alembic configuration file defining migration script location and logging
+├── initial-alembic.ini     # Baseline Alembic config (migration locations and logging)
+├── demo-alembic.ini        # Optional Alembic config for demo/test data (own version table)
 ├── compose.yaml            # Docker Compose specification for orchestrating all BE-only services
 ├── main.py                 # Primary entry point for FastAPI application
 ├── pyproject.toml          # Project metadata and dependency definitions
@@ -193,6 +195,22 @@ $env:DB_PORT="5432"
 $env:DB_NAME="postgres"
 $env:OPENAI_API_KEY=
 ```
+
+---
+# Database Migrations
+
+Schema and seed data are managed with Alembic. From `cosmic-db/`, run:
+
+```bash
+# Linux/MacOS
+.venv/bin/alembic -c initial-alembic.ini upgrade head
+```
+```ps1
+# Windows
+.venv/Scripts/alembic -c initial-alembic.ini upgrade head
+```
+
+See [`migrations/README.md`](migrations/README.md) for the full workflow, revision layout, demo/test data seeding, and `-x` options.
 
 ---
 # Setup & Execution
