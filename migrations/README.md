@@ -4,8 +4,8 @@ Schema and seed data are versioned with [Alembic](https://alembic.sqlalchemy.org
 
 | Config | Revisions | Version table | Purpose |
 | --- | --- | --- | --- |
-| `initial-alembic.ini` | `migrations/initial_versions/` | `alembic_version` | Schema + essential data |
-| `demo-alembic.ini` | `migrations/demo_versions/` | `alembic_version_demo` | Optional demo/test data |
+| `initial-alembic.ini` | `migrations/initial_versions/` | `initial_alembic_version` | Schema + essential data |
+| `demo-alembic.ini` | `migrations/demo_versions/` | `demo_alembic_version` | Optional demo/test data |
 
 Run both from the `cosmic-db/` directory with the project's environment active.
 

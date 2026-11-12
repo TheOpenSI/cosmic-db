@@ -32,7 +32,7 @@ cosmic-db/
 ├── CONTRIBUTING            # Guidelines for project contributors
 ├── LICENSE                 # Project licensing information (MIT)
 ├── README.md               # This's what you're seeing right now
-├── __init__.py             # Package initialisation (mainly for relative import usages)
+├── __init__.py             # Package initialisation (import paths and relative imports)
 ├── initial-alembic.ini     # Baseline Alembic config (migration locations and logging)
 ├── demo-alembic.ini        # Optional Alembic config for demo/test data (own version table)
 ├── compose.yaml            # Docker Compose specification for orchestrating all BE-only services

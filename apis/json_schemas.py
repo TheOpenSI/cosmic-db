@@ -14,7 +14,7 @@ from pydantic.types import (
 
 
 ### Internal modules ###
-from cores.db import cosmic_db_configs
+from cores.configs import cosmic_db_configs
 from cores.globals import (
     USER_ROLE,
     LLM_ROLE
