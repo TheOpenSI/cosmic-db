@@ -27,6 +27,23 @@ if config.config_file_name is not None:
 # target_metadata = None
 target_metadata = SQLModel.metadata
 
+# Allows a second Alembic config (see 'demo-alembic.ini') to track its own
+# revisions in a separate table.
+version_table: str = config.get_main_option("version_table") or "alembic_version"
+
+
+def include_object(
+    object,
+    name: str,
+    type_: str,
+    reflected: bool,
+    compare_to,
+) -> bool:
+    """Keep Alembic's own version tables out of autogenerate drift checks."""
+    if type_ == "table" and name.startswith("alembic_version"):
+        return False
+    return True
+
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
@@ -45,11 +62,13 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    # For reason on this, read line 9 - 14 in 'alembic.ini' file
+    # For reason on this, read the sqlalchemy.url note in 'initial-alembic.ini'
     # url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=cosmic_db_url,
         target_metadata=target_metadata,
+        version_table=version_table,
+        include_object=include_object,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
     )
@@ -65,9 +84,10 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    # For reason on this, read line 9 - 14 in 'alembic.ini' file. Also, we'll be
-    # tuning the DB configs through our Python script instead, hence why not
-    # utilising 'engine_from_config()' method
+    # For reason on this, read the sqlalchemy.url note in
+    # 'initial-alembic.ini'. Also, we'll be tuning the DB configs through our
+    # Python script instead, hence why not utilising 'engine_from_config()'
+    # method
     # connectable = engine_from_config(
     #     config.get_section(config.config_ini_section, {}),
     #     prefix="sqlalchemy.",
@@ -81,7 +101,9 @@ def run_migrations_online() -> None:
     with connectable.connect() as connection:
         context.configure(
             connection=connection,
-            target_metadata=target_metadata
+            target_metadata=target_metadata,
+            version_table=version_table,
+            include_object=include_object
         )
 
         with context.begin_transaction():

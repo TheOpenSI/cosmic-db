@@ -7,7 +7,7 @@ from pydantic.types import (
     UUID7,
     AwareDatetime
 )
-from ...types.json_schemas import ChatHistorySchemaUpdate
+from ..json_schemas import ChatHistorySchemaUpdate
 
 
 ### Internal modules ###
