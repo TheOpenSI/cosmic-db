@@ -27,7 +27,7 @@ cosmic-db/
 ├── .dockerignore           # Files excluded from Docker builds
 ├── .gitattributes          # Git configuration for path attributes
 ├── .gitignore              # Files excluded from version control
-├── .python-version         # Pinned Python version for the project (benefical to `uv` only)
+├── .python-version         # Pinned Python version for the project (beneficial to `uv` only)
 ├── CONTRIBUTING            # Guidelines for project contributors
 ├── LICENSE                 # Project licensing information (MIT)
 ├── README.md               # This's what you're seeing right now
@@ -339,3 +339,8 @@ postgres=#
 ```
 
 The version number and exact format may vary depending on your PostgreSQL installation, but the prompt indicates a successful connection.
+
+---
+# Conventions
+
+This repository follows the shared [EditorConfig conventions](docs/conventions/EDITORCONFIG.md). See the [live documentation](https://github.com/TheOpenSI/cosmic-docs/blob/main/docs/06-development/editorconfig.md) for the rules and editor setup.
