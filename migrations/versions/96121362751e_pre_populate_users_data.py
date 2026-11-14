@@ -51,12 +51,12 @@ def upgrade() -> None:
 
     # NOTE:
     # Equivalent SQL query from this ORM style is:
-    #   SELECT 
+    #   SELECT
     #       id,
     #       name
     #   FROM
     #       public.roles
-    #   WHERE 
+    #   WHERE
     #       name ILIKE 'admin'
     #   OR
     #       name ILIKE 'user'

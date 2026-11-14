@@ -59,4 +59,4 @@ class UserTokenRollingStatsResponse(BaseModel):
     months:         int
     labels:         list[str]
     input_totals:   list[int | None]
-    output_totals:  list[int | None] 
+    output_totals:  list[int | None]

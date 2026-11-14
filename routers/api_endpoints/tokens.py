@@ -2,7 +2,7 @@
 from fastapi import (
     APIRouter,
     HTTPException,
-    status, 
+    status,
     Query
 )
 from sqlmodel import select
