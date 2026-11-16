@@ -3,5 +3,5 @@
 set -euo pipefail
 
 
-.venv/bin/alembic upgrade head
+.venv/bin/alembic -c initial-alembic.ini upgrade head
 uv run fastapi dev --host 0.0.0.0

@@ -7,7 +7,7 @@ from pydantic.types import (
     UUID7,
     AwareDatetime
 )
-from ...types.json_schemas import ConfigurationSchemaUpdate
+from ..json_schemas import ConfigurationSchemaUpdate
 
 
 ### Internal modules ###
