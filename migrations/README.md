@@ -67,7 +67,7 @@ Tune the generated data with `-x` arguments (defaults shown):
 ```
 ```ps1
 # Windows
-.venv/Scripts/alembic -c demo-alembic.ini -x rows=50 -x users=1 \
+.venv/Scripts/alembic -c demo-alembic.ini -x rows=50 -x users=1 `
   -x days-back=180 -x chatboxes=6 -x messages=10 upgrade head
 ```
 
