@@ -21,9 +21,9 @@ Write-Host "==> Checking and preparing environment/configuration files..."
 # Helper function to conditionally copy files safely
 function Invoke-SafeCopy {
     param(
-		$Source,
-		$Destination
-	)
+        $Source,
+        $Destination
+    )
 
     if (Test-Path $Destination) {
         Write-Host "Skipped: [$Destination] already exists (left untouched)."
